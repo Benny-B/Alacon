@@ -1,4 +1,12 @@
 AlaConnection::Application.routes.draw do
+  get "staticpages/home"
+
+  get "staticpages/about"
+
+  get "staticpages/contact"
+
+  root :to => 'staticpages#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
