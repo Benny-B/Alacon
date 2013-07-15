@@ -8,10 +8,12 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   padding-top: 60px;
+  height: 100%; margin: 0; padding: 0;
 }
 
 section {
@@ -110,12 +112,7 @@ footer {
   margin-left: 100px;
 }
 
-#welcome p
-{
-  font-size: 4em;
-  letter-spacing: -2px;
- 
-}
+
 
  .alaimg
 {
@@ -124,3 +121,17 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* map */
+
+#map label { width: auto; display:inline; }
+#map img { max-width: none; }
+#map
+{
+  width: 400px;
+  height: 100%;
+  width: 100%;
+}
+
+
+

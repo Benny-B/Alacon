@@ -1,4 +1,8 @@
 AlaConnection::Application.routes.draw do
+  devise_for :users
+  resources :users
+
+
   get "staticpages/home"
 
   get "staticpages/about"
@@ -6,6 +10,7 @@ AlaConnection::Application.routes.draw do
   get "staticpages/contact"
 
   root :to => 'staticpages#home'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

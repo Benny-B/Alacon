@@ -3,21 +3,27 @@
 <html>
   <head>
     <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  </head>
-  <body>
-  	<div class="center hero-unit">
-  	<div id = "welcome">
-  	<p><h1><strong>Welcome to ALAConnection</strong></h1></p>
-	<h2>
-		Connecting the next generation of African Leaders
-	</h2>
-	<h3>
-		<a href='http://africanleadershipacademy.org/'> African leadership Academy</a>
-	</h3>
+  	<% if user_signed_in? %>
+ 
+  	<%= render "layouts/map" %>
+
+ 	<% else %>
+ 	<div class="container">
+  		<div class="center hero-unit">
+			<div id = "welcome">
+  				<h1>Welcome to ALAConnection</h1>
+				<h2>
+					Connecting the next generation of African Leaders
+				</h2>
+				<h3>
+					<a href='http://africanleadershipacademy.org/'> African leadership Academy</a>
+				</h3>
 	
-	<%= link_to "Sign up now!","#", class: "btn btn-large btn-primary" %>
-	<%= link_to "Sign in", '#', class: "btn btn-large btn-primary", id: "spacer" %>
-	</div>
+				<%= link_to "Sign up now!",new_user_registration_path, class: "btn btn-large btn-primary" %>
+			<%= link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary", id: "spacer" %>
 		</div>
-  </body>
+	</div>
+</div>
+  	<% end %>
+  	</body>
 </html>
