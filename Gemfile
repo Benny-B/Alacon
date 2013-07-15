@@ -30,7 +30,14 @@ group :test do
 end
 
 group :production do
+  gem 'bcrypt-ruby', '3.0.1'
   gem 'pg', '0.12.2'
+  gem 'annotate'   , '2.5.0'
+  gem 'paperclip'
+  gem 'aws-sdk'
+  gem 'figaro'
+  gem 'rmagick'
+  gem 'devise'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
