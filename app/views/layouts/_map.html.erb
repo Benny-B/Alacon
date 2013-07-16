@@ -3,6 +3,8 @@
 var map;
 var worldcenter = new google.maps.LatLng(30,-30);
 var pos;
+var latitude;
+var longitude;
 
 function initialize() {
   var mapOptions = {
@@ -17,7 +19,43 @@ map.setCenter(worldcenter)
     navigator.geolocation.getCurrentPosition(function(position) {
        pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
+
+      latitude = pos.lat();
+      longitude = pos.lng();
+      var f1 = document.getElementById("f1");
+      var f2 = document.getElementById("f2");
+
+      f1.value = latitude;
+      f2.value = longitude;
+
+//$(document).ready( 
+              $("form").submit(
+            
+    $.ajax(
+    {
+      url: $("form").attr("action"),
+      type: $("form").attr("method"),
+      dataType: "JSON",
+      data: $("form").serialize(),
+      complete: function(){
+        alert("complete!");
+      },
+      success: function(data,xhr){
+          alert("success!");
+      },
+      error: function() {
+          alert("error!");
+      }
+    })
+        
+     
+
+    );
+
   
+   // );
+  
+
     }, function() {
       handleNoGeolocation(true);
     });
@@ -32,11 +70,19 @@ function handleNoGeolocation(errorFlag) {
     var content = 'Error: The Geolocation service failed.';
   } else {
     var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
+  } 
+
+
+
 
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <div class="container" id="map">  </div>
+<%= form_for(@user, :html =>{ :style => ""}, :id=>"foo") do |f| %>
+<%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
+<% end %>
+
+
 
   
