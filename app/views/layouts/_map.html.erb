@@ -29,7 +29,7 @@ map.setCenter(worldcenter)
       f2.value = longitude;
 
 //$(document).ready( 
-              $("form").submit(
+    $("form").submit(
             
     $.ajax(
     {
@@ -38,13 +38,36 @@ map.setCenter(worldcenter)
       dataType: "JSON",
       data: $("form").serialize(),
       complete: function(){
-        alert("complete!");
+        var cid = <%=@user.id%>;
+         <% @allusers.each do |u| %>
+         var id = <%=u.id%>;
+        if(id != cid){
+        var la = <%=u.latitude%>;
+        var lon = <%=u.longitude%>;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(la, lon),
+          draggable: false
+        });
+        }
+        else
+        {
+          var la = <%=u.latitude%>;
+          var lon = <%=u.longitude%>;
+          var marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(la, lon),
+          icon: "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
+          draggable: false
+        });
+        }
+        <% end %>
       },
-      success: function(data,xhr){
-          alert("success!");
+      success: function(data,textStatus,xhr){
+          alert("success!"); 
       },
-      error: function() {
-          alert("error!");
+      error: function(xhr,textStatus,error) {
+          //alert(error);
       }
     })
         
