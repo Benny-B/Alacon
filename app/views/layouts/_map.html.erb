@@ -30,25 +30,18 @@ function initialize() {
   f2.value = longitude;
 
 //$(document).ready( 
-    
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } 
-  else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-
-  $("form").submit(
+    $("form").submit(
               
       $.ajax(
         {
           url: $("form").attr("action"),
           type: $("form").attr("method"),
-          dataType: "JSON",
+          //dataType: "JSON",
           data: $("form").serialize(),
           complete: function(){
+            
+          },
+          success: function(data,textStatus,xhr){
             var cid = <%=@user.id%>;
             <% @allusers.each do |u| %>
               var id = <%=u.id%>;
@@ -72,19 +65,22 @@ function initialize() {
                 draggable: false
               });
             }
-            <% end %>
-          },
-          success: function(data,textStatus,xhr){
-              alert("success!"); 
+            <% end %> 
           },
           error: function(xhr,textStatus,error) {
-              //alert(error);
+              alert(error);
           }
       })//end of ajax
     );//end of submit method
 
-
-  
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } 
+  else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
 }
 
 function handleNoGeolocation(errorFlag) {

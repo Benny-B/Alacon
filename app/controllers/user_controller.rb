@@ -1,8 +1,5 @@
 class UserController < ApplicationController
 
- 
-
-
   def update
   	if request.xhr?
   		@user = User.find(current_user)
