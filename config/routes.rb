@@ -13,6 +13,8 @@ AlaConnection::Application.routes.draw do
   root :to => 'staticpages#home'
   match "/bio/edit" => "bio#edit"
   match "/bio/show" => "bio#show"
+  match "/resume/edit" => "resume#edit"
+  match "/resume/show" => "resume#show"
 
 
   # The priority is based upon order of creation:
