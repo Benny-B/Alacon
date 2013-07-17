@@ -11,6 +11,8 @@ AlaConnection::Application.routes.draw do
   get "staticpages/contact"
 
   root :to => 'staticpages#home'
+  match "/bio/edit" => "bio#edit"
+  match "/bio/show" => "bio#show"
 
 
   # The priority is based upon order of creation:

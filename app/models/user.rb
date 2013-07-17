@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable, :validatable
          #:confirmable, :stretches => 20
 
-  attr_accessible :education,:latitude, :longitude, :first_name, :last_name, :email, :password, 
+  attr_accessible :education,:latitude, :longitude, :first_name, :Bio, :Resume, :last_name, :email, :password, 
         :password_confirmation
-        
+
   validate :ala_confirm
 
 
