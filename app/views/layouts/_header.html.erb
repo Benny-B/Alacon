@@ -8,6 +8,9 @@
 						<li><%= link_to "About",   "#"   %>  </li>
 						<li><%= link_to "Contact",   "#"   %>  </li>
 						<% if user_signed_in? %>
+						<li><%= link_to "Bio",   "#"   %>  </li>
+						<li><%= link_to "Resume",   "#"   %>  </li>
+						<li><%= link_to "Projects",   "#"   %>  </li>
 						<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
 						<% end %>
 					</ul>

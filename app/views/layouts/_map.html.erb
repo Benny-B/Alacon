@@ -10,102 +10,94 @@ function initialize() {
   var mapOptions = {
     zoom: 3,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+    };
   map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-map.setCenter(worldcenter)
+            mapOptions);
+  map.setCenter(worldcenter);
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
        pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+                 position.coords.longitude);
 
-      latitude = pos.lat();
-      longitude = pos.lng();
-      var f1 = document.getElementById("f1");
-      var f2 = document.getElementById("f2");
+  latitude = pos.lat();
+  longitude = pos.lng();
 
-      f1.value = latitude;
-      f2.value = longitude;
+  var f1 = document.getElementById("f1");
+  var f2 = document.getElementById("f2");
+
+  f1.value = latitude;
+  f2.value = longitude;
 
 //$(document).ready( 
-    $("form").submit(
-            
-    $.ajax(
-    {
-      url: $("form").attr("action"),
-      type: $("form").attr("method"),
-      dataType: "JSON",
-      data: $("form").serialize(),
-      complete: function(){
-        var cid = <%=@user.id%>;
-         <% @allusers.each do |u| %>
-         var id = <%=u.id%>;
-        if(id != cid){
-        var la = <%=u.latitude%>;
-        var lon = <%=u.longitude%>;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(la, lon),
-          draggable: false
-        });
-        }
-        else
-        {
-          var la = <%=u.latitude%>;
-          var lon = <%=u.longitude%>;
-          var marker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(la, lon),
-          icon: "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
-          draggable: false
-        });
-        }
-        <% end %>
-      },
-      success: function(data,textStatus,xhr){
-          alert("success!"); 
-      },
-      error: function(xhr,textStatus,error) {
-          //alert(error);
-      }
-    })
-        
-     
-
-    );
-
-  
-   // );
-  
-
+    
     }, function() {
       handleNoGeolocation(true);
     });
-  } else {
+  } 
+  else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+
+  $("form").submit(
+              
+      $.ajax(
+        {
+          url: $("form").attr("action"),
+          type: $("form").attr("method"),
+          dataType: "JSON",
+          data: $("form").serialize(),
+          complete: function(){
+            var cid = <%=@user.id%>;
+            <% @allusers.each do |u| %>
+              var id = <%=u.id%>;
+              if(id != cid){
+                var la = <%=u.latitude%>;
+                var lon = <%=u.longitude%>;
+                var marker = new google.maps.Marker({
+                  map: map,
+                  position: new google.maps.LatLng(la, lon),
+                  draggable: false
+                });
+              }
+              else
+              {
+                var la = <%=u.latitude%>;
+                var lon = <%=u.longitude%>;
+                var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(la, lon),
+                icon: "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
+                draggable: false
+              });
+            }
+            <% end %>
+          },
+          success: function(data,textStatus,xhr){
+              alert("success!"); 
+          },
+          error: function(xhr,textStatus,error) {
+              //alert(error);
+          }
+      })//end of ajax
+    );//end of submit method
+
+
+  
 }
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
     var content = 'Error: The Geolocation service failed.';
-  } else {
+  } 
+  else {
     var content = 'Error: Your browser doesn\'t support geolocation.';
   } 
-
-
-
-
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <div class="container" id="map">  </div>
 <%= form_for(@user, :html =>{ :style => ""}, :id=>"foo") do |f| %>
-<%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
+  <%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
 <% end %>
-
-
-
-  
