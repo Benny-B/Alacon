@@ -1,9 +1,10 @@
 class StaticpagesController < ApplicationController
+
   def home
   	if user_signed_in?
-  	@user = User.find(current_user)
-  	@allusers = User.all
-  	#@users = @allusers.delete_at
+    	@user = User.find(current_user)
+    	@allusers = User.all
+    	#@users = @allusers.delete_at
   	end
   end
 
@@ -15,6 +16,5 @@ class StaticpagesController < ApplicationController
   end
 
   def update
-
   end
 end
