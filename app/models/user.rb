@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :resume
 
+  has_many :project
+
   validate :ala_confirm
 
 

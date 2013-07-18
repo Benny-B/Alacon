@@ -8,6 +8,7 @@
 						<li><%= link_to "About",   "#"   %>  </li>
 						<li><%= link_to "Contact",   "#"   %>  </li>
 						<% if user_signed_in? %>
+						
 						<!-- Bio start-->
 						<li id="fat-menu" class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -33,9 +34,32 @@
 					 	</li>
 
 					 	<!-- resume ends -->
+					 	<!-- project starts -->
 
-						<li><%= link_to "Projects",   "#"   %>  </li>
-						<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
+						 <li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Projects <b class="caret"></b>
+						</a> 
+						<ul class="dropdown-menu" id="dropdown-menu2">
+							<li><%= link_to "Add", new_project_path %> </li>
+							<li><%= link_to "My projects", projects_path %>  </li>
+						</ul>
+					 	</li>
+
+						 <!-- projects end -->
+						<!-- account starts -->
+						<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Account <b class="caret"></b>
+						</a> 
+						<ul class="dropdown-menu" id="dropdown-menu2">
+							<li><%= link_to "Settings", edit_user_registration_path %>
+							<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
+						</ul>
+					 	</li>
+
+						<!-- account ends -->
+						
 						<% end %>
 					</ul>
 				</nav>

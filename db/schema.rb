@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717124355) do
+ActiveRecord::Schema.define(:version => 20130718104338) do
+
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "position"
+    t.string   "role"
+    t.string   "achievements"
+    t.string   "description"
+    t.string   "contributors"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "type_of_project"
+  end
+
+  add_index "projects", ["user_id", "created_at"], :name => "index_projects_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

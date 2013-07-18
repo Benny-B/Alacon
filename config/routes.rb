@@ -1,7 +1,10 @@
 AlaConnection::Application.routes.draw do
 
+
   devise_for :users
   resources :user
+  resources :projects
+
 
 
   get "staticpages/home"
@@ -15,6 +18,7 @@ AlaConnection::Application.routes.draw do
   match "/bio/show" => "bio#show"
   match "/resume/edit" => "resume#edit"
   match "/resume/show" => "resume#show"
+  match "/project/edit" => "projects#edit"
 
 
   # The priority is based upon order of creation:

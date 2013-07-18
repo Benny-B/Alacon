@@ -1,0 +1,17 @@
+<div class="container" id="contain">
+	<h1> My Projects </h1>
+	<% @projects.each do |project| %>
+	<% if project.user_id == current_user.id %>
+	<div id="custompro"> 
+
+	<h1><%= link_to project.title,  project_path(project) %> </h1>
+	<p><strong>Role:</strong><%= project.title %></p>
+	<p><strong>Date:</strong><%= project.date %></p>
+	<p><strong>Type:</strong><%= project.type_of_project %></p>
+	</div>
+	<%= link_to "Edit",edit_project_path(project), class: "btn btn-large btn-primary",:id => "editbutton" %>
+	<%= link_to "Show more",project_path(project), class: "btn btn-large btn-primary",:id => "editbutton" %>
+	<%= link_to 'Destroy', project, class: "btn btn-large btn-primary", method: :delete, data: { confirm: 'Are you sure?' }, :id => "spacer2" %>
+	<% end %>
+	<% end %>
+</div>

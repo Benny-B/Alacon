@@ -1,0 +1,56 @@
+<% provide(:title, "Projects") %>
+<body>
+<div class="container" id="contain"><%= form_for(@project, :id=> "mform") do |f| %>
+  <h1> Add a project </h1>
+
+  <%= f.label :Title %>
+  <%= f.text_field :title, :placeholder => "project title" %>
+
+  <%= f.label :Type %>
+  <%= f.text_field :type_of_project, :placeholder => "technology, agriculture, education etc" %>
+
+  <%= f.label :Date %>
+  <%= f.text_field :date,  :placeholder => "write a date mm-dd-yyyy"%>
+
+  <%= f.label :Position %>
+  <%= f.text_field :position, :placeholder => "What was your position, eg. manager, assistant etc" %>
+
+  <%= f.label :Role %>
+  <%= f.text_field :role, :placeholder => "What role did you serve" %>
+
+  <%= f.label :Achievements %>
+  <%= f.text_area :achievements, :placeholder => "What did you accomplish" %>
+
+  <%= f.label :Description %>
+  <%= f.text_area :description, :placeholder => "Describe your project" %>
+
+  <%= f.label :Contributors %>
+  <%= f.text_field :contributors, :placeholder => "Team members" %>
+
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+
+  <% end %>
+</div>
+</body>
+<script>
+ $("form").submit( function(event){
+    event.preventDefault();  
+    //$("form").find('input[type="submit"]').attr('disabled',true);  
+      $.ajax(
+        {
+          url: $("form").attr("action"),
+          type: $("form").attr("method"),
+          //dataType: "JSON",
+          data: $("form").serialize(),
+          complete: function(){
+          
+          },
+          success: function(data,textStatus,xhr){
+            alert("Your bio has been saved");   
+        
+          error: function(xhr,textStatus,error) {
+              alert("Please, write a bio");
+          }
+      })//end of ajax
+    });//end of submit method
+</script>

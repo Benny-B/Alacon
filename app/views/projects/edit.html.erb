@@ -1,0 +1,34 @@
+<% provide(:title, "Projects") %>
+<body>
+<div class="container" id="contain"><%= form_for(@project, :id=> "mform") do |f| %>
+  <h1> Add a project </h1>
+
+  <%= f.label :Title %>
+  <%= f.text_field :title, :placeholder => "project title" %>
+
+  <%= f.label :Type %>
+  <%= f.text_field :type_of_project, :placeholder => "technology, agriculture, education etc" %>
+
+  <%= f.label :Date %>
+  <%= f.text_field :date %>
+
+  <%= f.label :Position %>
+  <%= f.text_field :position, :placeholder => "What was your position, eg. manager, assistant etc" %>
+
+  <%= f.label :Role %>
+  <%= f.text_field :role, :placeholder => "What role did you serve" %>
+
+  <%= f.label :Achievements %>
+  <%= f.text_area :achievements, :placeholder => "What did you accomplish" %>
+
+  <%= f.label :Description %>
+  <%= f.text_area :description, :placeholder => "Describe your project" %>
+
+  <%= f.label :Contributors %>
+  <%= f.text_field :contributors, :placeholder => "Team members" %>
+
+   <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+
+  <% end %>
+</div>
+</body>
