@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
+    <title>AlaConnection | <%= yield(:title) %></title>
   	<% if user_signed_in? %>
   		<%= render "layouts/map" %>
  	<% else %>
- 	<div class="container">
+ 	<div class="container" id="frontcontainer">
   		<div class="center hero-unit">
 			<div id = "welcome">
   				<h1>Welcome to ALAConnection</h1>
