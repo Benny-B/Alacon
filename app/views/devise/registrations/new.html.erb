@@ -1,3 +1,47 @@
+<script type="text/javascript">
+
+var map;
+var pos;
+var latitude;
+var longitude;
+
+function initialize() {
+  
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+       pos = new google.maps.LatLng(position.coords.latitude,
+                 position.coords.longitude);
+  latitude = pos.lat();
+  longitude = pos.lng();
+
+  var f1 = document.getElementById("f1");
+  var f2 = document.getElementById("f2");
+
+  f1.value = latitude;
+  f2.value = longitude;
+
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } 
+  else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } 
+  else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  } 
+}
+initialize()
+</script>
+
 <div class="container">
 <h2>Sign up</h2>
 
@@ -23,8 +67,8 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.submit "Sign up" %></div>
-   <%= f.text_field :latitude,:value => "0"%>
-   <%= f.text_field :longitude,:value => "0"%>
+   <%= f.text_field :latitude, :id => "f1" %>
+   <%= f.text_field :longitude,:id => "f2"%>
 <% end %>
 
 <%= render "devise/shared/links" %>
