@@ -4,6 +4,10 @@ AlaConnection::Application.routes.draw do
   devise_for :users
   resources :user
   resources :projects
+  resources :tweets, only: [:create, :index, :destroy]
+  #resources :bios, only: [:edit, :show]
+  #resources :resume, only: [:edit, :show]
+  #resources :project, only: [:edit]
 
 
 

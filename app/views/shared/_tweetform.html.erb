@@ -1,0 +1,27 @@
+<%= form_for @tweet, :html => { :id => "tform" } do |f| %>
+      <%= f.text_field :content %>
+  <% end %>
+  <script>
+ $("#tform").submit( function(event){
+    event.preventDefault();   
+      $.ajax(
+        {
+          url: $("#tform").attr("action"),
+          type: $("#tform").attr("method"),
+          //dataType: "JSON",
+          data: $("#tform").serialize(),
+          complete: function(){
+
+          },
+          success: function(data,textStatus,xhr){
+          	var $value = $("#tform").find('input[type="text"]').val();
+           	$("#atweet").prepend("<div id='posttweet'> "+$value+" </div>");
+        	   $("#tform").find('input[type="text"]').val("");
+		       
+             },
+          error: function(xhr,textStatus,error) {
+              alert(error);
+          }
+      })//end of ajax
+    });//end of submit method
+</script>

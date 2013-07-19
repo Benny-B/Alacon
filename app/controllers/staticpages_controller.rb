@@ -4,7 +4,8 @@ class StaticpagesController < ApplicationController
   	if user_signed_in?
     	@user = User.find(current_user)
     	@allusers = User.all
-    	#@users = @allusers.delete_at
+      @alltweets = Tweet.all
+    	@tweet = Tweet.new
   	end
   end
 

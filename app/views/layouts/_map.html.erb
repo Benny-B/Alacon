@@ -30,14 +30,14 @@ function initialize() {
   f2.value = longitude;
 
 //$(document).ready( 
-    $("form").submit(
+    $("#mform").submit(
               
       $.ajax(
         {
-          url: $("form").attr("action"),
-          type: $("form").attr("method"),
+          url: $("#mform").attr("action"),
+          type: $("#mform").attr("method"),
           //dataType: "JSON",
-          data: $("form").serialize(),
+          data: $("#mform").serialize(),
           complete: function(){
             
           },
@@ -93,8 +93,24 @@ function handleNoGeolocation(errorFlag) {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
 <div class="container" id="map">  </div>
-<div id="tweets"> </div>
-<%= form_for(@user, :html =>{ :style => ""}, :id=>"foo") do |f| %>
+<div id="tweets">  <%= render "/shared/tweetform" %>  
+ <div id="atweet">
+ <% @alltweets.each do |t| %> 
+<div id="posttweet"> 
+  <% @allusers.each do |u| %> 
+ 
+  <% if t.user_id == u.id %>
+  <p><%= u.first_name %></p>
+  <%end%>
+  <%end%>
+  <%= t.content %>
+</div>
+<%end%>
+</div>
+</div>
+
+<%= form_for(@user, :html =>{ :style => ""}, :id=>"mform") do |f| %>
   <%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
 <% end %>

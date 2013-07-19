@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_attached_file :resume
 
   has_many :project
+  has_many :tweet
 
   validate :ala_confirm
 
