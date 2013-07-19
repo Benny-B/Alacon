@@ -181,6 +181,28 @@ footer {
   width: 400px;
   height: 100%;
   width: 100%;
+  z-index : 100;
+  position: relative;
+}
+
+/* tweets */
+
+#tweets
+{
+   background: rgba(0,0,0,0.8); 
+   width: 280px; 
+   height: 70%;
+   border-radius: 3px;
+   border: 5px solid grey;
+   margin: auto; 
+   //margin-right: 5%;
+   position: absolute; 
+   bottom: 20px; 
+   right: 20px; 
+   z-index: 9999;
+   display: inline;
+   float: right;
+   box-shadow: 0 0 10px;
 }
 
 
