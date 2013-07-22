@@ -1,5 +1,6 @@
 <%= form_for @tweet, :html => { :id => "tform" } do |f| %>
-      <%= f.text_field :content %>
+      <%= f.text_area :content, :cols =>"10", :rows=>"2" %>
+      <%= f.submit "Post", class: "btn btn-large btn-primary" %>
   <% end %>
   <script>
  $("#tform").submit( function(event){
@@ -14,9 +15,9 @@
 
           },
           success: function(data,textStatus,xhr){
-          	var $value = $("#tform").find('input[type="text"]').val();
+          	var $value = $("#tform").find('textarea').val();
            	$("#atweet").prepend("<div id='posttweet'> "+$value+" </div>");
-        	   $("#tform").find('input[type="text"]').val("");
+        	   $("#tform").find('textarea').val("");
 		       
              },
           error: function(xhr,textStatus,error) {

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130719085904) do
 
   create_table "projects", :force => true do |t|
     t.string   "title"
+    t.string   "type"
     t.string   "date"
     t.string   "position"
     t.string   "role"

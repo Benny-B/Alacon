@@ -13,6 +13,7 @@ group :development, :test do
   gem 'figaro'
   gem 'rmagick'
   gem 'devise'
+  gem 'angularjs-rails'
 end
 
 # Gems used only for assets and not required
@@ -38,6 +39,7 @@ group :production do
   gem 'figaro'
   gem 'rmagick'
   gem 'devise'
+  gem 'angularjs-rails'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
