@@ -30,18 +30,19 @@ function initialize() {
   f2.value = longitude;
 
 //$(document).ready( 
-    $("#mform").submit(
+    $("#coordinateForm").submit(
               
       $.ajax(
         {
-          url: $("#mform").attr("action"),
-          type: $("#mform").attr("method"),
+          url: $("#coordinateForm").attr("action"),
+          type: $("#coordinateForm").attr("method"),
           //dataType: "JSON",
-          data: $("#mform").serialize(),
+          data: $("#coordinateForm").serialize(),
           complete: function(){
             
           },
           success: function(data,textStatus,xhr){
+            //alert($("#coordinateForm").attr("method"))
             var cid = <%=@user.id%>;
             <% @allusers.each do |u| %>
               var id = <%=u.id%>;
@@ -91,26 +92,30 @@ function handleNoGeolocation(errorFlag) {
     var content = 'Error: Your browser doesn\'t support geolocation.';
   } 
 }
+
+
+
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <div class="container" id="map">  </div>
 <div id="tweets">  <%= render "/shared/tweetform" %>  
- <div id="atweet">
- <% @alltweets.each do |t| %> 
-<div id="posttweet"> 
+<div id="atweet">
+<% @alltweets.each do |t| %> 
+  <div id="posttweet"> 
   <% @allusers.each do |u| %> 
- 
-  <% if t.user_id == u.id %>
-  <p><%= u.first_name %></p>
+    <% if t.user_id == u.id %>
+    <p><%= u.first_name %></p>
   <%end%>
-  <%end%>
-  <%= t.content %>
+<%end%>
+<%= t.content %>
 </div>
 <%end%>
 </div>
-</div>
+</div> 
 
-<%= form_for(@user, :html =>{ :style => ""}, :id=>"mform") do |f| %>
+<%= form_for(@user, :html =>{ :style => "" ,:id=>"coordinateForm"}) do |f| %>
   <%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
 <% end %>
