@@ -14,6 +14,7 @@ group :development, :test do
   gem 'rmagick'
   gem 'devise'
   gem 'angularjs-rails'
+  gem 'redis', '2.1.1'
 end
 
 # Gems used only for assets and not required
@@ -40,6 +41,7 @@ group :production do
   gem 'rmagick'
   gem 'devise'
   gem 'angularjs-rails'
+  gem 'redis', '2.1.1'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
