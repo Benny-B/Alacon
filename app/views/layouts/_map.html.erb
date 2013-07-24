@@ -82,6 +82,7 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -92,11 +93,18 @@ function handleNoGeolocation(errorFlag) {
     var content = 'Error: Your browser doesn\'t support geolocation.';
   } 
 }
-
-
-
-
-
+  
+  function initload(){
+     /* initializes socket.io client */
+    var socket = io.connect('http://localhost:3332');
+    socket.on('new post', function(data){
+    var $user = JSON.parse(data).user;
+    var $post = JSON.parse(data).content;
+    $("#atweet").prepend("<div id='posttweet'><p><strong>"+$user+"</strong><em> posted </em></p>"+$post+" </div>");
+    console.log(JSON.parse(data));
+   });
+    }
+window.onload = initload();
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 

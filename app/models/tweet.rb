@@ -5,7 +5,16 @@ class Tweet < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :content
 
- 
+  after_create :message
+
+  def message
+
+  	msg = {
+  		:content => self.content,
+  		:user => User.find(self.user_id).first_name
+  	}
+  	 $redis.publish('new post', msg.to_json)
+  end
   
 
 

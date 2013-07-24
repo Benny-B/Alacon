@@ -11,7 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require angular
+//= require socket.io.js
+//= require service.js
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
