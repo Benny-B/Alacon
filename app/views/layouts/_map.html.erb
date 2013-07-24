@@ -212,7 +212,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <div id="posttweet"> 
   <% @allusers.each do |u| %> 
     <% if t.user_id == u.id %>
-    <p><strong><%= u.first_name %></strong> <em>posted at </em> <%= u.updated_at %> </p>
+    <p><strong><%= link_to u.first_name, user_path(u.id) %></strong> <em>posted at </em> <%= u.updated_at %> </p>
   <%end%>
 <%end%>
 <p><%= t.content %></p>

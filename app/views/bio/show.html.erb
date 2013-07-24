@@ -1,7 +1,6 @@
 <div class="container" id="contain">
-	<h1> All biographies </h1>
-	<% @users.each do |u| %>
-	<div id="customBio"> <%= u.Bio %> </div>
-	<% end %>
-	<%= link_to "Edit biography","/bio/edit", class: "btn btn-large btn-primary",:id => "editbutton" %>
+	<h1> My biography </h1>
+	<div id="customBio"> <%= current_user.Bio %> </div>
+	<%= link_to "Edit biography","/bio/edit", 
+	class: "btn btn-large btn-primary",:id => "editbutton" %>
 </div>

@@ -10,6 +10,7 @@ class Tweet < ActiveRecord::Base
   def message
 
   	msg = {
+      :id => User.find(self.user_id).id,
   		:content => self.content,
   		:user => User.find(self.user_id).first_name
   	}
