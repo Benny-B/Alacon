@@ -54,6 +54,7 @@
 						Account <b class="caret"></b>
 						</a> 
 						<ul class="dropdown-menu" id="dropdown-menu2">
+							<li><%= link_to "My Profile",  current_user   %>  </li>
 							<li><%= link_to "Settings", edit_user_registration_path %>
 							<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
 						</ul>
