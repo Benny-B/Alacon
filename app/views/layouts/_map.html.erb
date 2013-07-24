@@ -64,8 +64,15 @@ function initialize() {
                 var firstname = "<%= u.first_name %>";
                 var lastname = "<%= u.last_name %>";
                 var education = "<%= u.education %>";
-                var contentString = "<div><p><strong>firstname: </strong>"+firstname+
-                "</p><p><strong>Lastname: </strong>"+lastname+"</p><p><strong>Education: </strong>"+education+"</p></div>";
+var contentString = "<div><p><strong>firstname: </strong>"
++firstname+
+"</p><p><strong>Lastname:</strong>"
++lastname+
+"</p><p><strong>Education: </strong>"
++education+
+"</p><p><strong>"
++ "See profile".link("<%=user_path(u.id)%>") 
++"</strong></div>";
                 infobubble = new InfoBubble({maxWidth: 300,content: contentString});
                 infobubble.open(map,this);
                   });

@@ -1,6 +1,29 @@
 <div class="container" id="contain">
 
-<h2><%= @user.first_name %> <%= @user.last_name %>  </h2>
+<h2><em><%= @user.first_name %> <%= @user.last_name %></em></h2>
+	<div id="userbox">
+		<p>Biography</p>
+		<p> <%= @user.Bio %> </p>
+	</div>
+	<div id="userbox">
+		<p>Projects</p>
+		<% @projects.each do |project| %>
+		<h3><%= project.title %></h3>
+		<p><strong>Date:</strong><%= project.date %></p>
+		<p><strong>Type:</strong><%= project.type_of_project %></p>
+		<p><strong>Role:</strong><%= project.role %></p>
+		<p><strong>Date:</strong><%= project.date %></p>
+		<p><strong>Achievements:</strong><%= project.achievements %></p>
+		<p><strong>Description:</strong><%= project.description %></p>
+		<p><strong>Contributors:</strong><%= project.contributors %></p>
+		<%end%>
+
+	</div>
+	<div id="userbox">
+		<p>Resume</p>
+		<%= link_to "Click to see resume", @user.resume.url  %>
+
+	</div>
 
 
 </div>
