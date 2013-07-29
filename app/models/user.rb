@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
 
   validate :ala_confirm
 
+  def self.userSearch(query)
+    if query
+      find(:all,:conditions =>['first_name LIKE ? OR last_name LIKE ?',"%#{query}%","%#{query}%"])
+    else
+      find(:all)
+    end
+  end
+
 
   private
 

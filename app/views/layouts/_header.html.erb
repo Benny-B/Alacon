@@ -1,13 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
-		<div class="container">
+		<div class="container" id="headercontainer">
 			<%= link_to "AlaCon", "/", :id => "logo" %>
 				<nav>
 					<ul class="nav pull-right">
-						<li><%= link_to "Home",   "/"   %>  </li>
-						<li><%= link_to "About",   "#"   %>  </li>
-						<li><%= link_to "Contact",   "#"   %>  </li>
-						
+						<li><%= link_to "Home",   "/"   %>  </li>			
 						<% if user_signed_in? %>
 						<li><%= link_to "Index",  user_index_path   %>  </li>
 						<!-- Bio start-->
@@ -61,6 +58,13 @@
 					 	</li>
 
 						<!-- account ends -->
+						<!-- search form starts -->
+
+		<%= form_tag ({method: "get", controller: "staticpages", action: "search"}), :class=>"navbar-form pull-right" do %>
+				<%= text_field_tag :search, params[:search], :class => "search-query" %>
+				<% end %>
+
+						<!-- search form ends -->
 						
 						<% end %>
 					</ul>

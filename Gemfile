@@ -17,6 +17,7 @@ group :development, :test do
   gem 'redis', '2.1.1'
   gem 'will_paginate', '3.0.4'
   gem 'bootstrap-will_paginate', '0.0.9'
+  gem "hiredis", "~> 0.4.5"
 end
 
 # Gems used only for assets and not required
@@ -46,6 +47,8 @@ group :production do
   gem 'redis', '2.1.1'
   gem 'will_paginate', '3.0.4'
   gem 'bootstrap-will_paginate', '0.0.9'
+  gem "hiredis", "~> 0.4.5"
+  gem 'redis', '2.1.1'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

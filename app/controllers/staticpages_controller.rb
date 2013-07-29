@@ -18,4 +18,8 @@ class StaticpagesController < ApplicationController
 
   def update
   end
+
+  def search
+    @results = User.userSearch(params[:search])
+  end
 end
