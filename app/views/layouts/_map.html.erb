@@ -198,7 +198,6 @@ function handleNoGeolocation(errorFlag) {
     var $user = JSON.parse(data).user;
     var $post = JSON.parse(data).content;
     $("#atweet").prepend("<div id='posttweet'><p><strong>"+$user+"</strong><em> posted </em></p>"+$post+" </div>");
-    console.log(JSON.parse(data));
    });
     }
 window.onload = initload();
