@@ -34,6 +34,8 @@ AlaConnection::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.gem 'redis'
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:19687fe9a214653d750ad76abb797ad3@grouper.redistogo.com:9647/'
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
