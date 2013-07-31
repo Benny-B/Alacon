@@ -35,8 +35,14 @@ AlaConnection::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.gem 'redis'
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:19687fe9a214653d750ad76abb797ad3@grouper.redistogo.com:9647/'
-
+  
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+ config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['s3_bucket'],
+    :access_key_id => ENV['s3_access_key_id'],
+    :secret_access_key => ENV['s3_secret_access_key']
+  }
+}
 end

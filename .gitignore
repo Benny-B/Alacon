@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+/* ignore environment global variables */
+/config/initializers/env.rb
