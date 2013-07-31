@@ -19,6 +19,8 @@ AlaConnection::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.gem 'redis'
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:19687fe9a214653d750ad76abb797ad3@grouper.redistogo.com:9647/'
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

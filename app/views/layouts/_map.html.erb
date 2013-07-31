@@ -141,7 +141,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <div class="container" id="map">  </div>
-<div id="tweets">  <%= render "/shared/tweetform" %>  
+<div id = "tweets" class="tweets affix">  <%= render "/shared/tweetform" %>  
 <div id="atweet">
 <% @alltweets.each do |t| %> 
   <div id="posttweet"> 
@@ -157,6 +157,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 </div> 
 
-<%= form_for(@user, :html =>{ :style => "" ,:id=>"coordinateForm"}) do |f| %>
+<%= form_for(@user, :html =>{ :style => "visibility: hidden" ,:id=>"coordinateForm"}) do |f| %>
   <%= f.text_field :latitude, :id => "f1" %><%= f.text_field :longitude,:id => "f2" %><%= f.submit "s",:id=>"f1" %>
 <% end %>

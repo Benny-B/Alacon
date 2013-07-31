@@ -15,8 +15,9 @@ class BioController < ApplicationController
 
 
 	def show
-		@users = User.all
 	end
+
+	
 
 
 	def destroy
