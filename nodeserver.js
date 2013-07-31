@@ -1,4 +1,5 @@
-var io = require('socket.io').listen(3332);
+var port = process.env.PORT || 3332;
+var io = require('socket.io').listen(port);
 var redis;
 
 if(process.env.REDISTOGO_URL){
