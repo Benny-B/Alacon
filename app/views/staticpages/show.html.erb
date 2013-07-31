@@ -1,3 +1,4 @@
+<% provide(:title, "Search results") %>
 <div class="container" id="contain">
 
 <h1> Search Result </h1>
@@ -5,9 +6,8 @@
 	<%= render "/shared/notfound" %>
 <% else %>
 <% @results.each do |result| %>
-<div class="center hero-unit">
-	<%= result.first_name %>  <%= result.last_name %> 
-	<%= link_to "View profile", result%>
+<div id="user">
+	<%= link_to result.first_name + " " + result.last_name, result%> 
 </div>
 <% end %>
 <%end %>

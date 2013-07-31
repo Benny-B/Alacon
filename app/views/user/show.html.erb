@@ -1,12 +1,13 @@
-<div class="container" id="contain">
+<% provide(:title, "My profile") %>
+<div class="container" id="usercontainer">
 
 <h2><em><%= @user.first_name %> <%= @user.last_name %></em></h2>
 	<div id="userbox">
-		<p>Biography</p>
+		<h1>Biography</h1>
 		<p> <%= @user.Bio %> </p>
 	</div>
 	<div id="userbox">
-		<p>Projects</p>
+		<h1>Projects<h1>
 		<% @projects.each do |project| %>
 		<h3><%= project.title %></h3>
 		<p><strong>Date:</strong><%= project.date %></p>
@@ -20,7 +21,7 @@
 
 	</div>
 	<div id="userbox">
-		<p>Resume</p>
+		<h1>Resume</h1>
 		<%= link_to "Click to see resume", @user.resume.url  %>
 
 	</div>

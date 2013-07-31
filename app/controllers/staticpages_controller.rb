@@ -4,7 +4,7 @@ class StaticpagesController < ApplicationController
   	if user_signed_in?
     	@user = User.find(current_user)
     	@allusers = User.all
-      @alltweets = Tweet.paginate(page: params[:page])
+      @alltweets = Tweet.all(limit: 100)
     	@tweet = Tweet.new
   	end
   end

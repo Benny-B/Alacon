@@ -1,7 +1,13 @@
+<% provide(:title, "All users") %>
 <div class="container" id="contain">
-	<h3> Users index </h3>
+	<h2> Index </h2>
 <% @users.each do |user| %>
-	<div id="user"><strong><em><%= link_to user.first_name, user %>    <%= user.last_name %>
-	</strong></em> </br></div>
+	<div id="user">
+		<strong>
+			<em>
+				<h5><%= link_to user.first_name + "  " +user.last_name, user %> </h5>
+			</em>
+	</strong> </br>
+</div>
 <% end %>
 </div>

@@ -1,0 +1,19 @@
+<% provide(:title, "Archives") %>
+<div class="container" id="tweetcontainer">
+	<h1> Archives </h1>
+	<div id="atweet">
+		<% @alltweets.each do |t| %> 
+			<div id="posttweet"> 
+				<% @allusers.each do |u| %> 
+  			<% if t.user_id == u.id %>
+  			<p><strong>
+  				<%= link_to u.first_name, user_path(u.id) %></strong> 
+  				<em>posted at </em> <%= u.updated_at %> </p>
+			<%end%>
+		<%end%>
+	<p><%= t.content %></p>
+	</div>
+	<%end%>
+<%= will_paginate @alltweets %>
+</div>
+</div>

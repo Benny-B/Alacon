@@ -1,3 +1,4 @@
+<% provide(:title, "My projects") %>
 <div class="container" id="contain">
 	<h1> My Projects </h1>
 	<% @projects.each do |project| %>
@@ -11,7 +12,7 @@
 	</div>
 	<%= link_to "Edit",edit_project_path(project), class: "btn btn-large btn-primary",:id => "editbutton" %>
 	<%= link_to "Show more",project_path(project), class: "btn btn-large btn-primary",:id => "editbutton" %>
-	<%= link_to 'Destroy', project, class: "btn btn-large btn-primary", method: :delete, data: { confirm: 'Are you sure?' }, :id => "spacer2" %>
+	<%= link_to 'Delete', project, class: "btn btn-large btn-primary", method: :delete, data: { confirm: 'Are you sure?' }, :id => "spacer2" %>
 	<% end %>
 	<% end %>
 </div>
