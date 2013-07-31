@@ -9,7 +9,7 @@ redis.auth(rtg.auth.split(":")[1]);
 
 }else{
 	redis = require("redis").createClient();
-	console.log("redis created");
+	console.log("redis NOTT created");
 }
 
 redis.subscribe('new post');
