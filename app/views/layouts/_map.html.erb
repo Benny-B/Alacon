@@ -129,7 +129,7 @@ function handleNoGeolocation(errorFlag) {
   
   function initload(){
      /* initializes socket.io client */
-    var socket = io.connect('http://localhost:3332');
+      var socket = io.connect('http://safe-mountain-9284.herokuapp.com:3332');
     socket.on('new post', function(data){
     var $user = JSON.parse(data).user;
     var $post = JSON.parse(data).content;
