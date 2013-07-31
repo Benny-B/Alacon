@@ -52,17 +52,19 @@
 						</a> 
 						<ul class="dropdown-menu" id="dropdown-menu2">
 							<li><%= link_to "My Profile",  current_user   %>  </li>
-							<li><%= link_to "Settings", edit_user_registration_path %>
-							<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
+						<li><%= link_to "Settings", edit_user_registration_path(current_user) %>
+<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %>  </li>
 						</ul>
 					 	</li>
 
 						<!-- account ends -->
 						<!-- search form starts -->
 
-		<%= form_tag ({method: "get", controller: "staticpages", action: "search"}), :class=>"navbar-form pull-right" do %>
+		
+				<%= form_tag  staticpages_search_path, method: "get",  :class=>"navbar-form pull-right" do %>
 				<%= text_field_tag :search, params[:search], :class => "search-query" %>
 				<% end %>
+				
 
 						<!-- search form ends -->
 						

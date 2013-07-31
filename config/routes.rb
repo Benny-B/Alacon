@@ -8,7 +8,7 @@ AlaConnection::Application.routes.draw do
   #resources :bios, only: [:edit, :show]
   #resources :resume, only: [:edit, :show]
   #resources :project, only: [:edit]
-
+  resources :staticpages, only: [:show]
 
 
   get "staticpages/home"
@@ -16,7 +16,7 @@ AlaConnection::Application.routes.draw do
   get "staticpages/about"
 
   get "staticpages/contact"
-  get "staticpages/search"
+
 
   root :to => 'staticpages#home'
   match "/bio/edit" => "bio#edit"

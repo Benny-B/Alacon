@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def self.userSearch(query)
     if query
-      find(:all,:conditions =>['first_name LIKE ? OR last_name LIKE ?',"%#{query}%","%#{query}%"])
+      find(:all,:conditions =>['first_name LIKE ? OR last_name LIKE ?',"%#{query.downcase}%","%#{query.downcase}%"])
     else
       find(:all)
     end

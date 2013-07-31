@@ -7,7 +7,7 @@ class UserController < ApplicationController
     else
       @user = User.find(current_user)
       if @user.update_attributes(params[:user])
-        redirect_to resume_show_path
+        redirect_to current_user
       end
   	end
 
