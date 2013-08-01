@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   validate :ala_confirm
 
+  #query for Postgres
   def self.userSearch(query)
     if query
       find(:all,:conditions =>['first_name ILIKE ? OR last_name ILIKE ?',"%#{query}%","%#{query}%"])
@@ -22,6 +23,15 @@ class User < ActiveRecord::Base
       find(:all)
     end
   end
+  #never use both at the same time if you don't want it to blow on your face
+  #query for Sqlite3
+#  def self.userSearch(query)
+#    if query
+#      find(:all,:conditions =>['first_name LIKE ? OR last_name LIKE ?',"%#{query}%","%#{query}%"])
+#    else
+#      find(:all)
+#    end
+#  end
 
 
   private
