@@ -1,7 +1,7 @@
-<% provide(:title, "My biography") %>
+<% provide(:title, "About Me") %>
 <div class="container" id="contain">
-	<h1> My biography </h1>
+	<h1> About Me </h1>
 	<div id="customBio"> <%= current_user.Bio %> </div>
-	<%= link_to "Edit biography","/bio/edit", 
+	<%= link_to "Edit About Me","/bio/edit", 
 	class: "btn btn-large btn-primary",:id => "editbutton" %>
 </div>
