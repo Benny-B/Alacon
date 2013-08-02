@@ -35,14 +35,11 @@ AlaConnection::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.gem 'redis'
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['s3_bucket'],
-    :access_key_id => ENV['s3_access_key_id'],
-    :secret_access_key => ENV['s3_secret_access_key']
-  }
+  :storage => :filesystem
 }
 end

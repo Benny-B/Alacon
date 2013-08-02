@@ -1,5 +1,7 @@
 class UserController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def update
   	if request.xhr?
   		@user = User.find(current_user)

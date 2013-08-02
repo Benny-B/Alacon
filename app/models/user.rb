@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          #:confirmable, :stretches => 20
 
   attr_accessible :education,:latitude, :longitude, :first_name, :Bio, :resume, :last_name, :email, :password, 
-        :password_confirmation
+        :password_confirmation, :picture
 
   has_attached_file :resume
-
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "75x75>" }
   has_many :project
   has_many :tweet
 

@@ -1,8 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
 		<div class="container" id="headercontainer">
+			<% unless user_signed_in? %>
 			<em><%= link_to "AlaCon", "/", :id => "logo" %></em>
-				<nav>
+			<% else  %>
+	<div id="thumb">	<%= link_to image_tag(current_user.picture.url(:thumb)), current_user %>
+	</div>
+			<% end %>
+				<nav class="headerCenter">
 					<ul class="nav pull-right">
 						<li><%= link_to "Home",   "/"   %>  </li>			
 						<% if user_signed_in? %>

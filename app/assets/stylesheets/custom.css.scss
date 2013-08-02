@@ -188,7 +188,7 @@ footer {
 
 #usercontainer
 {
-  margin-top : 50px;
+  margin-top : 100px;
 }
 
 #tweetcontainer
@@ -390,7 +390,7 @@ margin-left: 150px;
 
 #headercontainer
 {
-  width: 1030px;
+  width: 1100px;
 }
 
 #f1, #f2
@@ -398,5 +398,20 @@ margin-left: 150px;
   visibility: hidden;
 }
 
+#thumb
+{
+  //border: 2px solid red;
+  
+  float:left;
+  overflow:hidden;
+}
 
+.navbar .nav.pull-right {
+float: right;
+margin-top: 20px;
+}
 
+.headerCenter
+{
+  text-align:center;
+}
